@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Match = require('../models/Match'); // Adjust path as needed
 const Group = require('../models/Group'); // Adjust path as needed
-const { uuidv4 } = require('uuid');
 
 // Utility to group members by a key (e.g., groupId)
 const groupBy = (array, key) => {
@@ -18,22 +17,6 @@ const shuffleArray = (array) => {
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-  }
-
-const generate_members = () => {
-    const people = [];
-  
-    // Generate an array of 10 random people
-    for (let i = 0; i < 10; i++) {
-      const person = {
-        _id: uuidv4(), // Generate random GUID for _id
-        groupId: uuidv4(), // Generate random GUID for groupId
-        firstName: faker.name.firstName(), // Random first name
-        lastName: faker.name.lastName() // Random last name
-      };
-      people.push(person);
-    }
-    console.log(people);
   }
   
   /**
@@ -101,4 +84,4 @@ const generate_members = () => {
     }
   };
 
-module.exports = { groupBy, shuffleArray, generate_members, removeUnarchivedMatches };
+module.exports = { groupBy, shuffleArray, removeUnarchivedMatches };
