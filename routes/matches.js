@@ -3,7 +3,9 @@ const router = express.Router()
 const Match = require("../models/Match")
 const Member = require("../models/Member")
 const Group = require("../models/Group")
-const { generateMatches } = require("../utils")
+const { shuffleArray } = require('../utils/index');
+const { removeUnarchivedMatches } = require('../utils/index');
+
 
 // GET /api/matches - Get all matches for a group
 router.get("/", async (req, res) => {
@@ -39,7 +41,7 @@ router.get("/", async (req, res) => {
 // POST /api/matches/generate - Generate matches for a group
 router.post("/generate", async (req, res) => {
   try {
-      const { groupId } = req.params; // Get groupId from URL params
+      const { groupId } = req.body; // Get groupId from URL params
   
       // Fetch the group and its members
       const group = await Group.findById(groupId).populate('members');

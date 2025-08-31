@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 })
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || "mongodb://admin:admin123@localhost:27017/secret_santa?authSource=admin"
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/ss"
 
 console.log(`[v0] Attempting to connect to MongoDB with URI: ${MONGO_URI}`)
 
