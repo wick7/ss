@@ -57,6 +57,7 @@ app.get("/", (req, res) => {
       "GET /api/members",
       "GET /api/matches",
       "POST /api/notifications/generate-matches",
+      "POST /api/notifications/email-notification",
     ],
   })
 })
